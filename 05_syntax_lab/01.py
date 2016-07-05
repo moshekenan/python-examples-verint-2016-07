@@ -1,5 +1,15 @@
 """
-Write a program that reads 10 numbers from
-the user and prints the largest one
+Syntax excersize #1
 """
+bigNum = 0
+number = 0
 
+while number < 10:
+    print "Please enter any number"
+    curNum = int(raw_input())
+    if curNum > bigNum:
+        bigNum = curNum
+
+    number += 1
+
+print "The highest number you entered is: ", bigNum        
