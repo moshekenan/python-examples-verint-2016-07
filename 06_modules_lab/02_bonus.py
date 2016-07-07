@@ -1,10 +1,12 @@
-""" Write a program that reads 2 numbers from sys.argv
-and prints their sum.
-Bonus: Print error messages for invalid inputs.
+import sys
 
-To print error messages we'll have to use a concept not yet learned in the
-course, and which will only be presented later: Exceptions.
-We'll tap into python's error handling and change its default
-error message to something more meaningful.
-"""
-
+if len(sys.argv) > 2:
+    try:
+        first_number = int(sys.argv[1])
+        seconfd_number = int(sys.argv[2])
+        print "The sum of %d and %d is %d" % (first_number,seconfd_number, first_number + seconfd_number )
+    except ValueError:
+        print "Pleased pass 2 numeric arguments only"
+else:
+    program_name = sys.argv[0]
+    print "Please pass 2 arguments, Usage: %s <first_number> <seconfd_number>" % program_name
