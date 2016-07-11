@@ -1,22 +1,11 @@
 """
-excersize #2
-check above average grades in list
+excersize #1
+Print list of all possible 3 lowercase English letters sequence
 """
-from random import randint
 
-sum_of_grades = 0
+letters = range(ord('a'),ord('z')+1)
 
-grades = range(20)
+c = [chr(x)+chr(y)+chr(z) for x in letters for y in letters for z in letters]
 
-for n in grades:
-   grades[n] = randint(40, 100)
-   sum_of_grades += grades[n]
+print c
 
-average = sum_of_grades/20
-print grades
-print "average: {}".format(average)
-
-print "baove average grades are:"
-for grade in grades:
-    if grade > average:
-        print "{}".format(grade)
