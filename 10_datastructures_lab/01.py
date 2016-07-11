@@ -1,23 +1,31 @@
-# -*- coding: utf-8 -*-
 """
 excersize #1
-Check username and password
+Print IP address of hosts
 """
 
-#list of valid usernames and passwords
-valid_accounts = {'apple' : 'red', 'lettuce' : 'green', 'lemon' : 'yellow', 'orange' : 'orange' }
+import sys
 
-#user input
-user_name = raw_input("Please enter username: ")
-password = raw_input("Please enter password: ")
+hosts = {}
 
-#return_str = "access denied"
-return_str = u"אין כניסה"
+with open("G:\People\Moshe\hosts.txt", "r") as fin:
+    lines = [line.rstrip('\n') for line in fin]
+    for line in lines:
+        fields = line.split("=")
+        hosts[fields[0]] = fields[1]
 
-#check validity
-for valid in valid_accounts:
-    if user_name == valid and password == valid_accounts[valid]:
-        #return_str = "Welcome"
-        return_str = u"ברוכים הבאים"        
+print hosts
 
-print return_str        
+if len(sys.argv) > 1:
+    program_name = sys.argv[0]
+    for arg in sys.argv:
+        if arg == program_name: continue
+        if arg in hosts:
+            print "{}={}".format(arg,hosts[arg])
+        else:
+            print "{} not exist in hosts file".format(arg)
+
+else:
+    program_name = sys.argv[0]
+    print "Usage: %s <hosts names>" % program_name
+
+
