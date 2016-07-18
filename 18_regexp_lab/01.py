@@ -25,7 +25,7 @@ with open(src_file, "r") as fin:
         m = re.search(r'(\w+)\s*=\s*(\w+)', line)
         if m is not None:
             if m.group(1) == key_to_find:
-                print m.group(2)
+                print "The value of key: '{}' is '{}'".format(key_to_find, m.group(2))
                 break
 
 
