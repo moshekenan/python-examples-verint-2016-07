@@ -1,7 +1,15 @@
-"""
-Write a program that takes a file name
-and prints line count for the file
+import sys
+import os
 
-Alert the user politely if there was any problem opening the file
-"""
+src = sys.argv[1]
 
+line_count = 0
+
+if ( not os.path.isfile(src)):
+    print("Sorry, file %s file not found" % src)
+else:
+    with open(src, "r") as fin:
+        for line in fin:
+            line_count += 1
+
+    print line_count
